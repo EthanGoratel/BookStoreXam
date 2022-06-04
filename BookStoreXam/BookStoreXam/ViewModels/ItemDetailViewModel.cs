@@ -10,20 +10,32 @@ namespace BookStoreXam.ViewModels
     public class ItemDetailViewModel : BaseViewModel
     {
         private string itemId;
-        private string text;
-        private string description;
+        private string bookname;
+        private string price;
+        private string category;
+        private string author;
         public string Id { get; set; }
 
-        public string Text
+        public string Bookname
         {
-            get => text;
-            set => SetProperty(ref text, value);
+            get => bookname;
+            set => SetProperty(ref bookname, value);
+        }
+        public string Price
+        {
+            get => price;
+            set => SetProperty(ref price, value);
+        }
+        public string Category
+        {
+            get => category;
+            set => SetProperty(ref category, value);
         }
 
-        public string Description
+        public string Author
         {
-            get => description;
-            set => SetProperty(ref description, value);
+            get => author;
+            set => SetProperty(ref author, value);
         }
 
         public string ItemId
@@ -45,8 +57,11 @@ namespace BookStoreXam.ViewModels
             {
                 var item = await DataStore.GetItemAsync(itemId);
                 Id = item.Id;
-                Title = item.Title;
-                Description = item.Description;
+                Bookname = item.Bookname;
+                Price = item.Price;
+                Category = item.Category;
+                Author = item.Author;
+                
             }
             catch (Exception)
             {

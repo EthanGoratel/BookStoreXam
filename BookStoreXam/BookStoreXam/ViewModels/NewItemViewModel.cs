@@ -9,9 +9,11 @@ namespace BookStoreXam.ViewModels
 {
     public class NewItemViewModel : BaseViewModel
     {
-        private string title;
-        private string description;
-
+        private string bookname;
+        private string price;
+        private string category;
+        private string author;
+ 
         public NewItemViewModel()
         {
             SaveCommand = new Command(OnSave, ValidateSave);
@@ -22,20 +24,34 @@ namespace BookStoreXam.ViewModels
 
         private bool ValidateSave()
         {
-            return !String.IsNullOrWhiteSpace(title)
-                && !String.IsNullOrWhiteSpace(description);
+            return !String.IsNullOrWhiteSpace(bookname)
+                && !String.IsNullOrWhiteSpace(price)
+                && !String.IsNullOrWhiteSpace(category)
+                && !String.IsNullOrWhiteSpace(author);
         }
 
-        public string Title
+        public string Bookname
         {
-            get => title;
-            set => SetProperty(ref title, value);
+            get => bookname;
+            set => SetProperty(ref bookname, value);
         }
 
-        public string Description
+        public string Price
         {
-            get => description;
-            set => SetProperty(ref description, value);
+            get => price;
+            set => SetProperty(ref price, value);
+        }
+
+        public string Category
+        {
+            get => category;
+            set => SetProperty(ref category, value);
+        }
+
+        public string Author
+        {
+            get => author;
+            set => SetProperty(ref author, value);
         }
 
         public Command SaveCommand { get; }
@@ -52,8 +68,10 @@ namespace BookStoreXam.ViewModels
             Item newItem = new Item()
             {
                 Id = Guid.NewGuid().ToString(),
-                Title = Title,
-                Description = Description
+                Bookname = Bookname,
+                Price = Price,
+                Category = Category,
+                Author = Author,                
             };
 
             await DataStore.AddItemAsync(newItem);

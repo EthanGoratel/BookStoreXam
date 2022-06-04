@@ -14,12 +14,8 @@ namespace BookStoreXam.Services
         {
             items = new List<Item>()
             {
-                new Item { Id = Guid.NewGuid().ToString(), Title = "First item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Title = "Second item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Title = "Third item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Title = "Fourth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Title = "Fifth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Title = "Sixth item", Description="This is an item description." }
+                new Item { Id = Guid.NewGuid().ToString(), Bookname = "First item", Author="This is an item description.", Category="cat", Price="1euro" },
+                
             };
         }
 
