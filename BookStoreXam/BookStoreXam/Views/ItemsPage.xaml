@@ -25,17 +25,9 @@
                             LineBreakMode="NoWrap" 
                             Style="{DynamicResource ListItemTextStyle}" 
                             FontSize="16" />
-                        <Label Text="{Binding Author}" 
-                            LineBreakMode="NoWrap" 
-                            Style="{DynamicResource ListItemDetailTextStyle}" 
-                            FontSize="13" />
                         <Label Text="{Binding Category}" 
                             LineBreakMode="NoWrap"
                             Style="{DynamicResource ListItemDetailTextStyle}"
-                            FontSize="13" />
-                        <Label Text="{Binding Price}" 
-                            LineBreakMode="NoWrap" 
-                            Style="{DynamicResource ListItemDetailTextStyle}" 
                             FontSize="13" />
                         <StackLayout.GestureRecognizers>
                             <TapGestureRecognizer 

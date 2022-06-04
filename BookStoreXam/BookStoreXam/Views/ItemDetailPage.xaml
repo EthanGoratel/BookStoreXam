@@ -5,10 +5,14 @@
              Title="{Binding Title}">
 
     <StackLayout Spacing="20" Padding="15">
-        <Label Text="Text:" FontSize="Medium" />
-        <Label Text="{Binding Text}" FontSize="Small"/>
-        <Label Text="Description:" FontSize="Medium" />
-        <Label Text="{Binding Description}" FontSize="Small"/>
+        <Label Text="Nom du livre:" FontSize="Medium" />
+        <Label Text="{Binding Bookname}" FontSize="Small"/>
+        <Label Text="Nom de l'auteur:" FontSize="Medium" />
+        <Label Text="{Binding Author}" FontSize="Small"/>
+        <Label Text="Catégorie du livre:" FontSize="Medium" />
+        <Label Text="{Binding Category}" FontSize="Small"/>
+        <Label Text="Prix:" FontSize="Medium" />
+        <Label Text="{Binding Price}" FontSize="Small"/>
     </StackLayout>
     
 </ContentPage>
