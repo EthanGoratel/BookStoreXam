@@ -66,8 +66,7 @@ namespace BookStoreXam.ViewModels
         private async void OnSave()
         {
             Book newItem = new Book()
-            {
-                Id = Guid.NewGuid().ToString(),
+            {                
                 Bookname = Bookname,
                 Price = Price,
                 Category = Category,
