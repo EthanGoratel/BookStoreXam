@@ -13,7 +13,7 @@ namespace BookStoreXam
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
+            DependencyService.Register<BookDataStore>();
             MainPage = new AppShell();
         }
 

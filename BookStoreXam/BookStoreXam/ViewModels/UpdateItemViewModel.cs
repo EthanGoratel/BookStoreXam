@@ -7,14 +7,14 @@ using Xamarin.Forms;
 
 namespace BookStoreXam.ViewModels
 {
-    public class NewItemViewModel : BaseViewModel
+    public class UpdateItemViewModel : BaseViewModel
     {
         private string bookname;
         private string price;
         private string category;
         private string author;
  
-        public NewItemViewModel()
+        public UpdateItemViewModel()
         {
             SaveCommand = new Command(OnSave, ValidateSave);
             CancelCommand = new Command(OnCancel);

@@ -10,7 +10,7 @@ namespace BookStoreXam.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+        public IDataStore<Book> DataStore => DependencyService.Get<IDataStore<Book>>();
 
         bool isBusy = false;
         public bool IsBusy

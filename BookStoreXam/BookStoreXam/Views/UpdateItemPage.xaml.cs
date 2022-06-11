@@ -8,11 +8,11 @@ using Xamarin.Forms.Xaml;
 
 namespace BookStoreXam.Views
 {
-    public partial class NewItemPage : ContentPage
+    public partial class UpdateItemPage : ContentPage
     {
         public Book Item { get; set; }
 
-        public NewItemPage()
+        public UpdateItemPage()
         {
             InitializeComponent();
             BindingContext = new NewItemViewModel();

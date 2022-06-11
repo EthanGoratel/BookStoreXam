@@ -2,7 +2,7 @@
 
 namespace BookStoreXam.Models
 {
-    public class Item
+    public class Book
     {
         public string Id { get; set; }
         public string Bookname { get; set; }

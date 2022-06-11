@@ -1,8 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BookStoreXam.Views.ItemDetailPage"
-             Title="{Binding Title}">
+             x:Class="BookStoreXam.Views.ItemsPage"
+             Title="{Binding Title}"
+             xmlns:local="clr-namespace:BookStoreXam.ViewModels"  
+             xmlns:model="clr-namespace:BookStoreXam.Models"  
+             x:Name="BrowseItemsPage">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Update" Command="{Binding UpdateItemCommand}" />
+        <ToolbarItem Text="Delete" Command="{Binding DeleteItemCommand}" />
+    </ContentPage.ToolbarItems>
 
     <StackLayout Spacing="20" Padding="15">
         <Label Text="Nom du livre:" FontSize="Medium" />

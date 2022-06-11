@@ -9,7 +9,7 @@ namespace BookStoreXam.ViewModels
     {
         public AboutViewModel()
         {
-            Title = "About";
+            Title = "A propos";
             OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://aka.ms/xamarin-quickstart"));
         }
 
