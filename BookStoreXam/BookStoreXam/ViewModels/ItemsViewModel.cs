@@ -19,7 +19,7 @@ namespace BookStoreXam.ViewModels
 
         public ItemsViewModel()
         {
-            Title = "Browse";
+            Title = "Votre Bibliothèque";
             Items = new ObservableCollection<Book>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 

@@ -22,7 +22,7 @@
                 <DataTemplate>
                     <ScrollView>               
                         <StackLayout Padding="10" x:DataType="model:Book">
-                            <Label Text="Votre bibliothèque" FontSize="Title"/>
+                            
                             <Label Text="{Binding Bookname}" 
                             LineBreakMode="NoWrap" 
                             Style="{DynamicResource ListItemTextStyle}" 

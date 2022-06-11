@@ -23,6 +23,11 @@ namespace BookStoreXam.Services
 
         public async Task<bool> AddItemAsync(Book item)
         {
+            HttpClientHandler handler = new HttpClientHandler();
+            handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) =>
+            { return true; };
+
+            var client = new HttpClient(handler);
             items.Add(item);
 
             return await Task.FromResult(true);
@@ -30,6 +35,11 @@ namespace BookStoreXam.Services
 
         public async Task<bool> UpdateItemAsync(Book item)
         {
+            HttpClientHandler handler = new HttpClientHandler();
+            handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) =>
+            { return true; };
+
+            var client = new HttpClient(handler);
             var oldItem = items.Where((Book arg) => arg.Id == item.Id).FirstOrDefault();
             items.Remove(oldItem);
             items.Add(item);
@@ -39,6 +49,11 @@ namespace BookStoreXam.Services
 
         public async Task<bool> DeleteItemAsync(string id)
         {
+            HttpClientHandler handler = new HttpClientHandler();
+            handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) =>
+            { return true; };
+
+            var client = new HttpClient(handler);
             var oldItem = items.Where((Book arg) => arg.Id == id).FirstOrDefault();
             items.Remove(oldItem);
 

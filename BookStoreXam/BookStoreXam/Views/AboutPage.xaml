@@ -30,7 +30,7 @@
         <ScrollView Grid.Row="1">
             <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
                 <Label Text="Votre bibliothèque" FontSize="Title"/>
-                <Label Text="Voici un programme pour consulter la liste de vos livres" FontSize="16" Padding="0,0,0,0"/>
+                <Label Text="Voici un programme pour gérer votre bibliothèque" FontSize="16" Padding="0,0,0,0"/>
                 <Label FontSize="16" Padding="0,24,0,0"/>
 
             </StackLayout>
