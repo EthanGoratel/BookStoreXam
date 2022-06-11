@@ -1,4 +1,5 @@
 ﻿using BookStoreXam.Models;
+using BookStoreXam.Views;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
@@ -14,6 +15,9 @@ namespace BookStoreXam.ViewModels
         private string price;
         private string category;
         private string author;
+        public Command DeleteItemCommand { get; }
+
+        public Command UpdateItemCommand { get; }
         public string Id { get; set; }
 
         public string Bookname
@@ -51,6 +55,13 @@ namespace BookStoreXam.ViewModels
             }
         }
 
+        public ItemDetailViewModel()
+        {
+            Title = "Votre Livre";
+            DeleteItemCommand = new Command(OnDeleteItem);
+            UpdateItemCommand = new Command(OnUpdateItem);
+        }
+
         public async void LoadItemId(string itemId)
         {
             try
@@ -67,6 +78,17 @@ namespace BookStoreXam.ViewModels
             {
                 Debug.WriteLine("Failed to Load Item");
             }
+        }
+
+        private async void OnDeleteItem(object obj)
+        {
+            var item = await DataStore.DeleteItemAsync(ItemId);
+            await Shell.Current.GoToAsync("..");
+        }
+
+        private async void OnUpdateItem(object obj)
+        {
+            await Shell.Current.GoToAsync(nameof(UpdateItemPage));
         }
     }
 }

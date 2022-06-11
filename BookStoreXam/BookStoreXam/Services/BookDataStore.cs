@@ -28,8 +28,10 @@ namespace BookStoreXam.Services
             { return true; };
 
             var client = new HttpClient(handler);
-            items.Add(item);
-
+            
+            var serial = JsonConvert.SerializeObject(item);
+            var json = new StringContent(serial, System.Text.Encoding.UTF8, "application/json");
+            var newitem = await client.PostAsync("https://localhost:7177/api/Books", json);
             return await Task.FromResult(true);
         }
 
