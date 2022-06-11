@@ -54,26 +54,12 @@ namespace BookStoreXam.Services
             { return true; };
 
             var client = new HttpClient(handler);
-            var oldItem = items.Where((Book arg) => arg.Id == id).FirstOrDefault();
-            items.Remove(oldItem);
+            var olditem = await client.DeleteAsync("http://localhost:5177/api/Books/" + id);
+       
 
             return await Task.FromResult(true);
         }
-        //public async Task GetTest(string url)
-        //{
-        //    var application = new WebApplicationFactory<Program>()
-        //        .WithWebHostBuilder(builder =>
-        //        {
-        //            // ... Configure test services
-        //        });
-
-        //    var client = application.CreateClient();
-        //    //...
-        //    var response = await client.GetAsync(url);
-
-        //    Assert.Equal(System.Net.HttpStatusCode.OK, response.StatusCode);
-
-        //}
+ 
         public async Task<Book> GetItemAsync(string id)
         {
             HttpClientHandler handler = new HttpClientHandler();

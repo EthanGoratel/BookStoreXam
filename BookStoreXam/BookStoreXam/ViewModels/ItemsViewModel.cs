@@ -51,10 +51,12 @@ namespace BookStoreXam.ViewModels
             }
         }
 
-        public void OnAppearing()
+        public async void OnAppearing()
         {
             IsBusy = true;
             SelectedItem = null;
+            await ExecuteLoadItemsCommand();
+
         }
 
         public Book SelectedItem
