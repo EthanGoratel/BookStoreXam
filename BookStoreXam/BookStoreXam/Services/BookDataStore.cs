@@ -42,11 +42,11 @@ namespace BookStoreXam.Services
             { return true; };
 
             var client = new HttpClient(handler);
-            var oldItem = items.Where((Book arg) => arg.Id == item.Id).FirstOrDefault();
-            items.Remove(oldItem);
-            items.Add(item);
-
+            var serial = JsonConvert.SerializeObject(item);
+            var json = new StringContent(serial, System.Text.Encoding.UTF8, "application/json");
+            var newitem = await client.PutAsync("https://localhost:7177/api/Books/" + item.Id, json);
             return await Task.FromResult(true);
+
         }
 
         public async Task<bool> DeleteItemAsync(string id)

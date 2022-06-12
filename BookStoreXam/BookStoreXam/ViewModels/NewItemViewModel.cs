@@ -1,7 +1,9 @@
 ﻿using BookStoreXam.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -24,8 +26,11 @@ namespace BookStoreXam.ViewModels
 
         private bool ValidateSave()
         {
+            double outprice;
+
             return !String.IsNullOrWhiteSpace(bookname)
                 && !String.IsNullOrWhiteSpace(price)
+                && double.TryParse(price, out outprice)
                 && !String.IsNullOrWhiteSpace(category)
                 && !String.IsNullOrWhiteSpace(author);
         }
@@ -66,11 +71,11 @@ namespace BookStoreXam.ViewModels
         private async void OnSave()
         {
             Book newItem = new Book()
-            {                
-                Bookname = Bookname,
-                Price = Price,
-                Category = Category,
-                Author = Author,                
+            {
+                Bookname = Regex.Replace(Bookname.Trim(), @"\s+", " ").ToUpper(),
+                Price = Price.Replace(',', '.').Trim(),
+                Category = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(Regex.Replace(Category.Trim(), @"\s+", " ").ToLower()),
+                Author = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(Regex.Replace(Author.Trim(), @"\s+", " ").ToLower()),
             };
 
             await DataStore.AddItemAsync(newItem);
@@ -78,5 +83,7 @@ namespace BookStoreXam.ViewModels
             // This will pop the current page off the navigation stack
             await Shell.Current.GoToAsync("..");
         }
+
+        
     }
 }

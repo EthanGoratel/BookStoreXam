@@ -12,15 +12,17 @@
         <ToolbarItem Text="Delete" Command="{Binding DeleteItemCommand}" />
     </ContentPage.ToolbarItems>
 
-    <StackLayout Spacing="20" Padding="15">
-        <Label Text="Nom du livre:" FontSize="Medium" />
-        <Label Text="{Binding Bookname}" FontSize="Small"/>
-        <Label Text="Nom de l'auteur:" FontSize="Medium" />
-        <Label Text="{Binding Author}" FontSize="Small"/>
-        <Label Text="Catégorie du livre:" FontSize="Medium" />
-        <Label Text="{Binding Category}" FontSize="Small"/>
-        <Label Text="Prix:" FontSize="Medium" />
-        <Label Text="{Binding Price}" FontSize="Small"/>
-    </StackLayout>
-    
+    <ScrollView>
+        <StackLayout Spacing="20" Padding="15">
+            <Label Text="Nom du livre:" FontSize="Micro" />
+            <Label Text="{Binding Bookname}" FontSize="Small"/>
+            <Label Text="Nom de l'auteur:" FontSize="Micro" />
+            <Label Text="{Binding Author}" FontSize="Small"/>
+            <Label Text="Catégorie du livre:" FontSize="Micro" />
+            <Label Text="{Binding Category}" FontSize="Small"/>
+            <Label Text="Prix:" FontSize="Micro" />
+            <Label Text="{Binding Price}" FontSize="Small"/>
+        </StackLayout>
+    </ScrollView> 
+
 </ContentPage>

@@ -3,24 +3,29 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BookStoreXam.Views.UpdateItemPage"
              Shell.PresentationMode="ModalAnimated"
-             Title="New Item"
-             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-             ios:Page.UseSafeArea="true">
+             Title="{Binding Title}"
+             xmlns:local="clr-namespace:BookStoreXam.ViewModels"  
+             xmlns:model="clr-namespace:BookStoreXam.Models"  
+             x:Name="UpdateItemsPage">
+    
     <ContentPage.Content>
-        <StackLayout Spacing="3" Padding="15">
-            <Label Text="Entrez le nom du livre" FontSize="Medium" />
-            <Entry Text="{Binding Bookname, Mode=TwoWay}" FontSize="Medium"/>
-            <Label Text="Entrez l'auteur" FontSize="Medium" />
-            <Entry Text="{Binding Author, Mode=TwoWay}" FontSize="Medium"/>
-            <Label Text="Entrez la catégorie" FontSize="Medium" />
-            <Entry Text="{Binding Category, Mode=TwoWay}" FontSize="Medium"/>
-            <Label Text="Entrez le prix" FontSize="Medium" />
-            <Entry Text="{Binding Price, Mode=TwoWay}" FontSize="Medium"/>
-            <StackLayout Orientation="Horizontal">
-                <Button Text="Annuler" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
-                <Button Text="Sauver" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>
+        <ScrollView>
+            <StackLayout Spacing="3" Padding="15">
+                <Label Text="Nom du livre:" FontSize="Medium" />
+                <Entry Text="{Binding Bookname}" FontSize="Small"/>
+                <Label Text="Nom de l'auteur:" FontSize="Medium" />
+                <Entry Text="{Binding Author}" FontSize="Small"/>
+                <Label Text="Catégorie du livre:" FontSize="Medium" />
+                <Entry Text="{Binding Category}" FontSize="Small"/>
+                <Label Text="Prix:" FontSize="Medium" />
+                <Entry Text="{Binding Price}" FontSize="Small"/>
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Annuler" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
+                    <Button Text="Modifier" Command="{Binding UpdateCommand}" HorizontalOptions="FillAndExpand"></Button>
+                </StackLayout>
             </StackLayout>
-        </StackLayout>
+        </ScrollView>
+
     </ContentPage.Content>
 
 </ContentPage>

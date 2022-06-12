@@ -15,7 +15,7 @@ namespace BookStoreXam.Views
         public UpdateItemPage()
         {
             InitializeComponent();
-            BindingContext = new NewItemViewModel();
+            BindingContext = new UpdateItemViewModel();
         }
     }
 }

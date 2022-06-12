@@ -69,7 +69,7 @@ namespace BookStoreXam.ViewModels
                 var item = await DataStore.GetItemAsync(itemId);
                 Id = item.Id;
                 Bookname = item.Bookname;
-                Price = item.Price;
+                Price = item.Price+"€";
                 Category = item.Category;
                 Author = item.Author;
                 
@@ -82,13 +82,14 @@ namespace BookStoreXam.ViewModels
 
         private async void OnDeleteItem(object obj)
         {
-            var item = await DataStore.DeleteItemAsync(ItemId);
+            await DataStore.DeleteItemAsync(ItemId);
             await Shell.Current.GoToAsync("..");
         }
 
         private async void OnUpdateItem(object obj)
         {
-            await Shell.Current.GoToAsync(nameof(UpdateItemPage));
+           
+            await Shell.Current.GoToAsync($"{nameof(UpdateItemPage)}?{nameof(UpdateItemViewModel.ItemId)}={itemId}");
         }
     }
 }
