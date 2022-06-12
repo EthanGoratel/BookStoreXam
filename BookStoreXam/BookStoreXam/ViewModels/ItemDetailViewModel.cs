@@ -69,7 +69,7 @@ namespace BookStoreXam.ViewModels
                 var item = await DataStore.GetItemAsync(itemId);
                 Id = item.Id;
                 Bookname = item.Bookname;
-                Price = item.Price+"€";
+                Price = Math.Round(double.Parse(item.Price),2)+"€";
                 Category = item.Category;
                 Author = item.Author;
                 
